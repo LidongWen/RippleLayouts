@@ -77,8 +77,10 @@ public class RippleLayout_one extends CustomView {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (rippleAnimUtil != null)
+        if (rippleAnimUtil != null) {
             rippleAnimUtil.cancel();
+        }
+        rippleAnimUtil = null;
     }
 
     @Override
@@ -175,10 +177,46 @@ public class RippleLayout_one extends CustomView {
 
         @Override
         public void onAnimationEnd(Animator animation) {
+//            isRun = false;
+//            invalidate();
+//            if (iRippleLayoutListener != null)
+//                iRippleLayoutListener.onFinish();
+        }
+
+        @Override
+        public void onAnimationCancel(Animator animation) {
+//            isRun = false;
+//            invalidate();
+//            if (iRippleLayoutListener != null)
+//                iRippleLayoutListener.onFinish();
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+
+        }
+    };
+    ValueAnimator.AnimatorUpdateListener aphlaAULis = new ValueAnimator.AnimatorUpdateListener() {
+        @Override
+        public void onAnimationUpdate(ValueAnimator animation) {
+            currentValue = (float) animation.getAnimatedValue();
+            paint.setAlpha((int) (currentValue * 255));
+            invalidate();
+        }
+    };
+    Animator.AnimatorListener aphlaAinListener = new Animator.AnimatorListener() {
+        @Override
+        public void onAnimationStart(Animator animation) {
+            isRun = true;
+        }
+
+        @Override
+        public void onAnimationEnd(Animator animation) {
             isRun = false;
             invalidate();
             if (iRippleLayoutListener != null)
                 iRippleLayoutListener.onFinish();
+            paint.setAlpha(255);
         }
 
         @Override

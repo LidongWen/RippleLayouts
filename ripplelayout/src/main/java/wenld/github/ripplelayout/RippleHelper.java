@@ -2,6 +2,7 @@ package wenld.github.ripplelayout;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,33 +26,33 @@ public class RippleHelper implements View.OnTouchListener {
     private WindowManager.LayoutParams mWsParams;
 
     public RippleHelper(Context mContext, View view) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            //初始化数据
+            this.mView = view;
+            this.mContext = mContext;
+            if (mStatusBarHeight == 0)
+                mStatusBarHeight = getStatusBarHeight(mContext);
+            //初始化 windowManager
+            //初始化 windowManager参数
+            mWs = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+            mWsParams = new WindowManager.LayoutParams();
+            mWsParams.format = PixelFormat.TRANSLUCENT;
+            mWsParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            mWsParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
+            mWsParams.gravity = Gravity.TOP | Gravity.LEFT;
+            //初始化 rippleLayout_one 参数
 
-        //初始化数据
-        this.mView = view;
-        this.mContext = mContext;
-        if (mStatusBarHeight == 0)
-            mStatusBarHeight = getStatusBarHeight(mContext);
-        //初始化 windowManager
-        //初始化 windowManager参数
-        mWs = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
-        mWsParams = new WindowManager.LayoutParams();
-        mWsParams.format = PixelFormat.TRANSLUCENT;
-        mWsParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        mWsParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
-        mWsParams.gravity = Gravity.TOP | Gravity.LEFT;
-        //初始化 rippleLayout_one 参数
+            rippleLayout_one = new RippleLayout_one(mContext);
+            rippleLayout_one.setiRippleLayoutListener(layoutListener);
 
-        rippleLayout_one = new RippleLayout_one(mContext);
-        rippleLayout_one.setiRippleLayoutListener(layoutListener);
-
-        // 给 view设置ontouch
-        mView.setOnTouchListener(this);
-
-
+            // 给 view设置ontouch
+            mView.setOnTouchListener(this);
+        }
     }
 
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
+    public boolean onTouch(View view, MotionEvent event) {
+        boolean superOnTouchEvent = view.onTouchEvent(event);
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
@@ -61,17 +62,17 @@ public class RippleHelper implements View.OnTouchListener {
                 break;
             case MotionEvent.ACTION_UP:
 
-                rippleLayoutParams = mView.getLayoutParams();
-                rippleLayoutParams.width = DensityUtils.px2dip(mContext, mView.getWidth());
-                rippleLayoutParams.height = DensityUtils.px2dip(mContext, mView.getHeight());
-                rippleLayout_one.setLayoutParams(rippleLayoutParams);
+
 
                 // 添加 rippleLayout到windows中
                 mWs.addView(rippleLayout_one, mWsParams);
-
+                rippleLayoutParams = rippleLayout_one.getLayoutParams();
+                rippleLayoutParams.width = mView.getWidth();
+                rippleLayoutParams.height = mView.getHeight();
+                rippleLayout_one.setLayoutParams(rippleLayoutParams);
 
                 int[] location = new int[2];
-                v.getLocationOnScreen(location);
+                mView.getLocationOnScreen(location);
                 int x = location[0];
                 int y = location[1];
                 mWsParams.x = x;
@@ -132,7 +133,7 @@ public class RippleHelper implements View.OnTouchListener {
         @Override
         public void onFinish() {
             if (mWs != null && rippleLayout_one.getParent() != null) {
-//                mWs.removeView(rippleLayout_one);
+                mWs.removeView(rippleLayout_one);
             }
         }
     };
