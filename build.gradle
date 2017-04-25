@@ -1,0 +1,56 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://www.jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+ext {
+    minSdkVersion = 12
+    targetSdkVersion = 25
+    compileSdkVersion = 25
+    buildToolsVersion = '25.0.2'
+    supportLibraryVersion = '25.1.1'
+    constraintLayoutVersion = '1.0.0-alpha7'//'1.0.0-beta5'
+}
+
+ext.deps = [
+        // Android
+        android           : 'com.google.android:android:4.1.1.4',
+
+        appcompatV7       : "com.android.support:appcompat-v7:$ext.supportLibraryVersion",
+
+        supportV4         : "com.android.support:support-v4:$ext.supportLibraryVersion",
+
+        cardViewV7        : "com.android.support:cardview-v7:$ext.supportLibraryVersion",
+
+        recyclerviewV7: "com.android.support:recyclerview-v7:$ext.supportLibraryVersion",
+
+        supportDesign     : "com.android.support:design:$ext.supportLibraryVersion",
+
+        supportAnnotations: "com.android.support:support-annotations:$ext.supportLibraryVersion",
+
+        constraintLayout  : "com.android.support.constraint:constraint-layout:$ext.constraintLayoutVersion",
+
+        javapoet          : 'com.squareup:javapoet:1.8.0',
+
+        autoservice       : 'com.google.auto.service:auto-service:1.0-rc3',
+        autocommon        : 'com.google.auto:auto-common:0.6',
+]
