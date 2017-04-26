@@ -1,8 +1,12 @@
 # RippleLayout
 MaterialDesign 水波纹触摸效果，**兼容版本 12**  ！    
-MaterialDesign water ripple touch effect, ** compatible version 12 **!  
-Java层代码调用，不影响控件事件，**对代码无侵入性！对代码无侵入性！对代码无侵入性！**  
-Java layer code calls, does not affect the control event, ** no intrusion on the code! No intrusion on the code! No intrusion on the code! **
+MaterialDesign water ripple touch effect, ** compatible version 12 **!    
+  
+Java层代码调用**对代码无侵入性！对代码无侵入性！对代码无侵入性！**  
+Java layer code calls, does not affect the control event, ** no intrusion on the code! No intrusion on the code! No intrusion on the code! **  
+
+完美处理触摸事件，完美解耦依赖View  
+Perfect handling touch events, perfect decoupling dependency View  
 
 <img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/one.gif"></img>  <img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/two.gif"></img> 
 
