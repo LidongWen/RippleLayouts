@@ -2,7 +2,7 @@
 水波纹触摸效果，兼容版本 12  
 
 
-<img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/one.gif"></img>  <img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/wo.gif"></img> 
+<img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/one.gif"></img>  <img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/two.gif"></img> 
 
 
 
