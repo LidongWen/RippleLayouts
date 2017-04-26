@@ -2,6 +2,7 @@ package wenld.github.ripplelayout;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -27,7 +28,7 @@ public class RippleHelper implements View.OnTouchListener {
     private WindowManager.LayoutParams mWsParams;
 
     public RippleHelper(Context mContext, View view) {
-//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             this.mView = view;
             this.mContext = mContext;
             if (mStatusBarHeight == 0)
@@ -46,9 +47,9 @@ public class RippleHelper implements View.OnTouchListener {
 
             //
             mView.setOnTouchListener(this);
-//        } else {
-//
-//        }
+        } else {
+
+        }
     }
 
     public RippleHelper setRippleColor(int rippleColor) {
