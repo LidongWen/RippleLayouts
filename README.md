@@ -1,6 +1,7 @@
 # RippleLayout
-水波纹触摸效果，**兼容版本 12**  ！
-java代码调用，不影响控件事件，**对代码无侵入性！对代码无侵入性！对代码无侵入性！**
+水波纹触摸效果，**兼容版本 12**  ！   
+
+Java层代码调用，不影响控件事件，**对代码无侵入性！对代码无侵入性！对代码无侵入性！**
 
 
 <img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/one.gif"></img>  <img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/two.gif"></img> 
