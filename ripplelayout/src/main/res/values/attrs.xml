@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RippleLayout">
+        <attr name="ripple_show_time" format="integer" />
+        <attr name="ripple_radius" format="dimension" />
+        <attr name="ripple_color" format="color|reference" />
+        <attr name="ripple_background" format="color|reference" />
+        <attr name="ripple_maxCount" format="integer" />
+        <attr name="ripple_interval" format="integer" />
+    </declare-styleable>
+</resources>

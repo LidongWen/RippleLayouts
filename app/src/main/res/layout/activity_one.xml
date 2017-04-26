@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <wenld.github.ripplelayout.RippleLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:ripple_radius="100dp"
+        app:ripple_maxCount="10"
+        app:ripple_background="#00FFFFFF"
+        app:ripple_interval="50"
+        app:ripple_show_time="600"
+        app:ripple_color="@color/colorAccent"
+        />
+</LinearLayout>

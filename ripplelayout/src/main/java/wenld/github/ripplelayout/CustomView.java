@@ -38,12 +38,16 @@ public abstract class CustomView  extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         mWidth = measure(widthMeasureSpec);
         mHeight = measure(heightMeasureSpec);
+        calcuateRadius();
+        setMeasuredDimension(mWidth, mHeight);
+        sizeChangesd();
+    }
+
+    protected void calcuateRadius() {
         mCenterX = (mWidth - getPaddingLeft() - getPaddingRight()) / 2 + getPaddingLeft();
         mCenterY = (mHeight - getPaddingTop() - getPaddingBottom()) / 2 + getPaddingTop();
 
         circleR = Math.min(mWidth - getPaddingLeft() - getPaddingRight(), mHeight - getPaddingTop() - getPaddingBottom()) / 2;
-        setMeasuredDimension(mWidth, mHeight);
-        sizeChangesd();
     }
 
     private int measure(int origin) {
@@ -54,7 +58,7 @@ public abstract class CustomView  extends View {
             result = specSize;
         } else {
             if (specMode == MeasureSpec.AT_MOST) {
-                result = Math.min(result, specSize);
+                result = Math.max(result, specSize);
             }
         }
         return result;

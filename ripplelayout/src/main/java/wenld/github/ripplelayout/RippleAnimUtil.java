@@ -2,7 +2,6 @@ package wenld.github.ripplelayout;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
-import android.view.animation.DecelerateInterpolator;
 
 /**
  * Created by wenld on 2017/4/25.
@@ -13,9 +12,16 @@ public class RippleAnimUtil {
     private ValueAnimator.AnimatorUpdateListener animatorUpdateListener;
     private Animator.AnimatorListener animatorListener;
 
+    long duration = 300;
+
     public RippleAnimUtil(ValueAnimator.AnimatorUpdateListener animatorUpdateListener, Animator.AnimatorListener animatorListener) {
         this.animatorUpdateListener = animatorUpdateListener;
         this.animatorListener = animatorListener;
+    }
+
+    public RippleAnimUtil setDuration(long duration) {
+        this.duration = duration;
+        return this;
     }
 
     public void palyAnim() {
@@ -25,14 +31,16 @@ public class RippleAnimUtil {
             return;
         if (rippleAnimator == null) {
             rippleAnimator = ValueAnimator.ofFloat(0, 1);
-            rippleAnimator.setDuration(300);
-            rippleAnimator.setInterpolator(new DecelerateInterpolator(2.0f));
+            rippleAnimator.setDuration(duration);
+//            rippleAnimator.setInterpolator(new DecelerateInterpolator(2.0f));
             rippleAnimator.addUpdateListener(animatorUpdateListener);
             rippleAnimator.addListener(animatorListener);
         }
-        if (rippleAnimator.isRunning())
-            return;
-        rippleAnimator.start();
+        if (rippleAnimator.isRunning()) {
+            rippleAnimator.start();
+        } else {
+            rippleAnimator.start();
+        }
     }
 
     public void cancel() {

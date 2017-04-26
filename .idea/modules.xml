@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RippleLayouts.iml" filepath="$PROJECT_DIR$/RippleLayouts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RippleLayouts.iml" filepath="$PROJECT_DIR$/RippleLayouts.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ripplelayout/ripplelayout.iml" filepath="$PROJECT_DIR$/ripplelayout/ripplelayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/ripplelayout/ripplelayout.iml" filepath="$PROJECT_DIR$/ripplelayout/ripplelayout.iml" />
     </modules>
   </component>
