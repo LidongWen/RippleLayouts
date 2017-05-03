@@ -28,5 +28,6 @@ dependencies {
     compile deps.appcompatV7
     compile deps.constraintLayout
     testCompile 'junit:junit:4.12'
-    compile project(':ripplelayout')
+    compile 'com.github.LidongWen:RippleLayouts:0.0.3'
+//    compile project(':ripplelayout')
 }
