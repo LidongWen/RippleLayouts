@@ -1,4 +1,4 @@
-# RippleLayout
+# Material Design水波纹触控效果
 MaterialDesign 水波纹触摸效果，**兼容版本 12**  ！    
 MaterialDesign water ripple touch effect, ** compatible version 12 **!    
   
@@ -8,7 +8,11 @@ Java layer code calls, does not affect the control event, ** no intrusion on the
 完美处理触摸事件，完美解耦依赖View  
 Perfect handling touch events, perfect decoupling dependency View  
 
-<img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/one.gif"></img>  <img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/two.gif"></img> 
+![two.gif](http://upload-images.jianshu.io/upload_images/1599843-0498c31dc10b0250.gif?imageMogr2/auto-orient/strip)
+
+![](http://upload-images.jianshu.io/upload_images/1599843-98223a576a2aa0c9.gif?imageMogr2/auto-orient/strip)
+
+
 
 
 ## 使用 Use
@@ -47,7 +51,7 @@ Perfect handling touch events, perfect decoupling dependency View
 ## 引用 reference
 ```groovy
 // 项目引用   Project reference
-    compile 'com.github.LidongWen:RippleLayouts:0.0.2'
+    compile 'com.github.LidongWen:RippleLayouts:0.0.3'
 
 // 根目录下引用  root dir reference
     repositories {
@@ -56,3 +60,24 @@ Perfect handling touch events, perfect decoupling dependency View
     }
 
 ```
+
+## 内存泄漏测试
+![内存情况：无内存泄漏](http://upload-images.jianshu.io/upload_images/1599843-a3f488fbe5fa8e5d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+> ## 0.0.3
+> 修复滑动view，水波纹固定bug；
+> 修复 showTime 设置无效bug；
+> ## 0.0.2
+> good
+
+代码传送门：[戳我!!!](https://github.com/LidongWen/RippleLayouts)
+
+
+
+-----
+
+希望我的文章不会误导在观看的你，如果有异议的地方欢迎讨论和指正。
+如果能给观看的你带来收获，那就是最好不过了。
+
+##### 人生得意须尽欢, 桃花坞里桃花庵
+##### 点个关注呗，[对，不信你点试试？](http://www.jianshu.com/users/99f514ea81b3/timeline)
