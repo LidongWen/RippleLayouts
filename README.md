@@ -8,10 +8,7 @@ Java layer code calls, does not affect the control event, ** no intrusion on the
 完美处理触摸事件，完美解耦依赖View  
 Perfect handling touch events, perfect decoupling dependency View  
 
-![two.gif](http://upload-images.jianshu.io/upload_images/1599843-0498c31dc10b0250.gif?imageMogr2/auto-orient/strip)
-
-![](http://upload-images.jianshu.io/upload_images/1599843-98223a576a2aa0c9.gif?imageMogr2/auto-orient/strip)
-
+<img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/one.gif"></img>  <img width="320" height="500" src="https://github.com/LidongWen/RippleLayouts/blob/master/art/two.gif"></img> 
 
 
 
