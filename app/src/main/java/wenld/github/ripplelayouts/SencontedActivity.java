@@ -39,7 +39,7 @@ public class SencontedActivity extends AppCompatActivity implements View.OnClick
         new RippleHelper(this, btn_001);
         new RippleHelper(this, btn_002);
         new RippleHelper(this, tv_001);
-        new RippleHelper(this, iv_001);
+        new RippleHelper(this, iv_001).setRipple_show_time(2000);
 //                .setRippleBackgroundResource(R.color.half_colorAccent)
 //                .setRippleColorResource(R.color.colorAccent);
 

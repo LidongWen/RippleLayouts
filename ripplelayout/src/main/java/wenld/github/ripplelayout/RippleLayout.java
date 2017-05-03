@@ -24,7 +24,7 @@ import java.util.Iterator;
 public class RippleLayout extends CustomView {
     private static final int DEFAULT_COLOR = 0xFFFF4081;
     private static final int DEFAULT_BACKGROUND = 0x55FF4081;
-    private static final long ANIM_TIME = 300;
+    private static final long ANIM_TIME = 200;
     private static final long ONCLICK_INTERVAL = 60;
 
     private ArrayList<OnclickInfo> onClickTimes = new ArrayList<>(5);
@@ -152,7 +152,6 @@ public class RippleLayout extends CustomView {
 
                 int x = (int) event.getX();
                 int y = (int) event.getY();
-
                 onClickTimes.add(0, new OnclickInfo(System.currentTimeMillis(), new Point(x, y)));
                 if (onClickTimes.size() > ripple_maxCount) {
                     for (int i = onClickTimes.size() - 1; i > 4; i--) {
@@ -162,7 +161,7 @@ public class RippleLayout extends CustomView {
                 if (rippleAnimUtil == null) {
                     rippleAnimUtil = new RippleAnimUtil(animatorUpdateListener, animatorListener);
                 }
-                rippleAnimUtil.setDuration(ANIM_TIME).palyAnim();
+                rippleAnimUtil.setDuration(ripple_show_time).palyAnim();
                 break;
         }
         return true;

@@ -8,7 +8,10 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+
+import static android.view.WindowManager.LayoutParams.TYPE_TOAST;
 
 /**
  * Created by wenld on 2017/4/25.
@@ -27,6 +30,7 @@ public class RippleHelper implements View.OnTouchListener {
     private WindowManager mWs;
     private WindowManager.LayoutParams mWsParams;
 
+    ViewTreeObserver viewTreeObserver;
     public RippleHelper(Context mContext, View view) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             this.mView = view;
@@ -36,6 +40,7 @@ public class RippleHelper implements View.OnTouchListener {
             //
             mWs = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
             mWsParams = new WindowManager.LayoutParams();
+            mWsParams.type=TYPE_TOAST;
             mWsParams.format = PixelFormat.TRANSLUCENT;
             mWsParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
             mWsParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -47,6 +52,30 @@ public class RippleHelper implements View.OnTouchListener {
 
             //
             mView.setOnTouchListener(this);
+            viewTreeObserver=mView.getViewTreeObserver();
+            viewTreeObserver.addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+                @Override
+                public void onScrollChanged() {
+                    if(rippleLayout.getParent() != null){
+                        int[] location = new int[2];
+                        mView.getLocationOnScreen(location);
+                        int x = location[0];
+                        int y = location[1];
+//                    Log.e(TAG, "x : " + x + " y :" + y + " mStatusBarHeight:" + mStatusBarHeight +
+//                            "\n  rippleLayoutParams.width:" + mView.getWidth() +
+//                            "\n  rippleLayoutParams.height:" + mView.getHeight() +
+//                            "\n mView.getPaddingLeft():" + mView.getPaddingLeft() + "  mView.getPaddingTop()：" + mView.getPaddingTop() +
+//                            "\n  mView.getPaddingRight():" + mView.getPaddingRight() + " mView.getPaddingBottom():" + mView.getPaddingBottom());
+                        mWsParams.x = x;
+                        mWsParams.y = y - mStatusBarHeight;
+                        try {
+                            mWs.updateViewLayout(rippleLayout, mWsParams);
+                        } catch (Exception e) {
+
+                        }
+                    }
+                }
+            });
         } else {
 
         }
